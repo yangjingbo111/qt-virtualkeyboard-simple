@@ -22,6 +22,3 @@ OTHER_FILES += \
 
 
 
-DEFINES += MAIN_QML=\\\"basic-b2qt.qml\\\"
-
-

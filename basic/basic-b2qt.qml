@@ -33,7 +33,10 @@ import QtQuick.VirtualKeyboard 2.2
 import QtQuick.VirtualKeyboard.Settings 2.2
 import "content"
 
-Item {
+
+
+Window {
+    visible: true
     width: 640//1280
     height: 480//720
 
@@ -96,12 +99,6 @@ Item {
                 value: inputPanelTransition.running
             }
 
-        }
-
-        Binding {
-            target: VirtualKeyboardSettings
-            property: "fullScreenMode"
-            value: appContainer.height > 0 && (appContainer.width / appContainer.height) > (16.0 / 9.0)
         }
     }
 }

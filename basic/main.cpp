@@ -27,21 +27,21 @@
 **
 ****************************************************************************/
 
-#include <QQuickView>
 #include <QGuiApplication>
 #include <QQmlEngine>
+
+
+#include <QQmlApplicationEngine>
 
 int main(int argc, char *argv[])
 {
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
     QGuiApplication app(argc, argv);
-    QQuickView view(QString("qrc:/%2").arg(MAIN_QML));
-    if (view.status() == QQuickView::Error)
+    QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("qrc:/basic-b2qt.qml")));
+    if (engine.rootObjects().isEmpty())
         return -1;
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-
-    view.show();
 
     return app.exec();
 }
